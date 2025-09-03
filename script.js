@@ -1,14 +1,13 @@
 const myLibrary = [];
 
-function Book(title, author, pages, readBoolean, id) {
-  if (!new.target) {
-    throw Error("You need to use the 'new' operator")
+class Book{
+  constructor(title, author, pages, readBoolean, id) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readBoolean = readBoolean;
+    this.id = id;
   }
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readBoolean = readBoolean;
-  this.id = id;
 }
 
 Book.prototype.info = function() {
@@ -90,7 +89,3 @@ document.getElementById('book-form').addEventListener('submit', function(e) {
   this.reset();
   this.style.display = 'none';
 })
-
-addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false);
-addBookToLibrary('1984', 'George Orwell', 328, true);
-displayLibrary();
